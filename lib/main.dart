@@ -43,8 +43,9 @@ class _DicePageState extends State<DicePage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Row(
+      child: Column(
         children: <Widget>[
+          SizedBox(height: 40),
           Expanded(
               child: FlatButton(
             onPressed: () {
@@ -52,6 +53,7 @@ class _DicePageState extends State<DicePage> {
             },
             child: Image.asset("images/dice$leftDiceNumber.png"),
           )),
+          SizedBox(height: 40),
           Expanded(
             child: FlatButton(
               onPressed: () {
@@ -59,7 +61,17 @@ class _DicePageState extends State<DicePage> {
               },
               child: Image.asset("images/dice$rightDiceNumber.png"),
             ),
-          )
+          ),
+          SizedBox(height: 40),
+          FlatButton(
+            padding: EdgeInsets.all(10),
+            color: Colors.white,
+            onPressed: () {
+              _changeDice();
+            },
+            child: Text("Roll Dice"),
+          ),
+          SizedBox(height: 20),
         ],
       ),
     );
