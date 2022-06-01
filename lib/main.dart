@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:math';
+import 'dart:io';
 
 void main() => runApp(MaterialApp(
       home: Home(),
@@ -17,6 +19,13 @@ class Home extends StatelessWidget {
         title: Text('Dice'),
       ),
       body: DicePage(),
+      floatingActionButton: FloatingActionButton.extended(
+        icon: Icon(Icons.close),
+        label: Text("Exit"),
+        onPressed: () {
+          SystemNavigator.pop();
+        },
+      ),
     );
     ;
   }
@@ -72,6 +81,15 @@ class _DicePageState extends State<DicePage> {
             child: Text("Roll Dice"),
           ),
           SizedBox(height: 20),
+          FlatButton(
+            padding: EdgeInsets.all(10),
+            color: Colors.white,
+            onPressed: () {
+              exit(0);
+            },
+            child: Text("Exit App"),
+          ),
+          SizedBox(height: 10),
         ],
       ),
     );
